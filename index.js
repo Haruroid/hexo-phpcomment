@@ -159,6 +159,7 @@ function addcomment(data) {
 	html += '                });' + "\n";
 	html += '            }, false);' + "\n";
 	html += '        })();' + "\n";
+	html += '</script>' + "\n";
 	
 	html = html.replace(/PAGE_TITLE/g, title).replace("ECHOBACK", link).replace(/PHP_DIR/g, hexo.config.phpcomment.phpdir);
 	data.content += html;
