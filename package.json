@@ -1,0 +1,6 @@
+{
+    "name": "hexo-phpcomment",
+    "version": "0.0.1",
+    "description": "PHP Comment",
+    "main": "index"
+}
