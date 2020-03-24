@@ -57,7 +57,7 @@ try {
         <div class="navbar-nav">
             <form method="post">
                 <input type="hidden" name="password" value="<?php echo $pw?>">
-                <a class="nav-item nav-link <?php if(strcmp($page,"") == 0 && strcmp($action,"") == 00){echo "active";} ?>" href="#" onclick="this.parentNode.submit()">HOME</a>
+                <a class="nav-item nav-link <?php if(strcmp($data,"") == 0 && strcmp($action,"") == 00){echo "active";} ?>" href="#" onclick="this.parentNode.submit()">HOME</a>
             </form>
             <form method="post">
                 <input type="hidden" name="password" value="<?php echo $pw?>">
