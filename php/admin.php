@@ -1,5 +1,8 @@
 <?php
-$pw = htmlspecialchars($_POST["password"]);
+$pw = "";
+if(isset($_POST["password"])) {
+    $pw = htmlspecialchars($_POST["password"]);
+}
 $data = "";
 if(isset($_POST["data"])) {
     $data = $_POST["data"];
@@ -22,7 +25,7 @@ if(strcmp($pw,"") == 0){
     }
     exit(0);
 }else{
-    if(strcmp($config["password"],"testing123") != 0){
+    if(strcmp($pw,$config["password"]) != 0){
         exit(0);
     }
 }
