@@ -17,6 +17,16 @@ if(isset($_POST["retry"])) {
 }
 
 $config = parse_ini_file(dirname(__FILE__)."/config.ini");
+$banlistfile = dirname(__FILE__)."/banlist";
+$banlist = "";
+
+if(strcmp($config["fail2ban"],"enable") == 0){
+    $banlist = file_get_contents($banlistfile);
+    if(strpos($banlist,$_SERVER["REMOTE_ADDR"]) != 0){
+        echo '!';
+        exit(0);
+    }
+}
 
 if(strcmp($pw,"") == 0){
     if(strcmp($retry,"") == 0){
@@ -26,6 +36,10 @@ if(strcmp($pw,"") == 0){
     exit(0);
 }else{
     if(strcmp($pw,$config["password"]) != 0){
+        if(strcmp($config["fail2ban"],"enable") == 0){
+            $banlist .= "\n".$_SERVER["REMOTE_ADDR"];
+            file_put_contents($banlistfile, $banlist);
+        }
         exit(0);
     }
 }
