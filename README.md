@@ -17,13 +17,14 @@ _config.yml
 ```yml
 phpcomment:
   phpdir: /static/php 
-  #PHPを置くディレクトリ
+  #PHPを置くディレクトリ *phpから書き込めることを確認してください
   #多分https://example.com/phpとかで別サーバーも参照可
 ```
 php/config.ini
 ```ini
 db_dir=/var/secret/db.db ;読めないところへ
 password=testing123 ;管理画面ログイン用
+fail2ban=enable ; fail2ban有効化
 ```
 .iniへのアクセスを拒否
 ```nginx
